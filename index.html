@@ -1081,6 +1081,175 @@
                 min-width: 90px;
             }
         }
+        /* ==========================================
+           17. 動態效果與動畫
+           ========================================== */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-gradient {
+            background: linear-gradient(-45deg, #FF6B9D, #00B4D8, #FFC75F, #FF9A76);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* 統計卡片 */
+        .stat-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            border: 2px solid transparent;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--dark-blue);
+            margin: 10px 0;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .stat-progress {
+            width: 100%;
+            height: 6px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .stat-bar {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+
+        /* 天氣卡片 */
+        .weather-card {
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition-base);
+        }
+
+        .weather-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* 計算器卡片 */
+        .calculator-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--border-light);
+        }
+
+        /* 緊急聯絡卡片 */
+        .emergency-card {
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: all var(--transition-base);
+            border: 2px solid var(--border-light);
+            display: block;
+            color: var(--text-main);
+        }
+
+        .emergency-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+
+        .emergency-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .emergency-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .emergency-number {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--dark-blue);
+        }
+
+        /* 分享按鈕 */
+        .share-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .share-btn:active {
+            transform: translateY(-1px);
+        }
+
 
         /* =========================================
            17. PRINT STYLES
@@ -1400,6 +1569,52 @@
                 </div>
             </div>
         </section>
+        <!-- 互動式統計儀表板 -->
+        <section class="section" style="background: linear-gradient(135deg, #f8f9fa, #ffffff);">
+            <div class="section-inner">
+                <h2>📊 蜜月即時數據</h2>
+                <p class="subtitle">點擊卡片查看動畫效果！</p>
+                
+                <div class="grid-4">
+                    <div class="stat-card float-animation" onclick="animateNumber('flightHours')">
+                        <div class="stat-icon">✈️</div>
+                        <div class="stat-value" id="flightHours">0</div>
+                        <div class="stat-label">飛行小時</div>
+                        <div class="stat-progress">
+                            <div class="stat-bar" style="width: 100%; background: var(--accent);"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card float-animation" onclick="animateNumber('mealCount')" style="animation-delay: 0.2s;">
+                        <div class="stat-icon">🍽️</div>
+                        <div class="stat-value" id="mealCount">0</div>
+                        <div class="stat-label">預計用餐次數</div>
+                        <div class="stat-progress">
+                            <div class="stat-bar" style="width: 80%; background: var(--primary);"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card float-animation" onclick="animateNumber('photoEstimate')" style="animation-delay: 0.4s;">
+                        <div class="stat-icon">📸</div>
+                        <div class="stat-value" id="photoEstimate">0</div>
+                        <div class="stat-label">預計拍照數</div>
+                        <div class="stat-progress">
+                            <div class="stat-bar" style="width: 90%; background: var(--gold);"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card float-animation" onclick="animateNumber('sunsetViews')" style="animation-delay: 0.6s;">
+                        <div class="stat-icon">🌅</div>
+                        <div class="stat-value" id="sunsetViews">0</div>
+                        <div class="stat-label">日落次數</div>
+                        <div class="stat-progress">
+                            <div class="stat-bar" style="width: 60%; background: var(--coral);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <!-- ==========================================
              SECTION 2: FLIGHTS (修正版)
@@ -2326,7 +2541,7 @@
                     <!-- 5. 老巴剎沙嗲街 -->
                     <div class="card">
                         <h4>🍢 老巴剎沙嗲街 (Lau Pa Sat Satay Street)</h4>
-                        <img src="https://www.bring-you.info/imgs/2016/07/Satay-Street-13.jpg" alt="Satay" class="img-small">
+                        <img src="https://www.laupasat.sg/nitropack_static/lPjcWsMCWdYLKSxZHxwlRvPiQYyudaey/assets/images/optimized/rev-9ace080/www.laupasat.sg/wp-content/uploads/2024/03/SSC-1.jpg" alt="Satay" class="img-small">
                         <div class="tag tag-blue">戶外</div>
                         
                         <h5 style="font-size: 1rem; margin-top: 15px;">🍽️ 點餐秘訣：</h5>
@@ -2609,6 +2824,56 @@
             </div>
         </section>
 
+        <!-- 貨幣換算計算器 -->
+        <section class="section">
+            <div class="section-inner">
+                <h2>💱 實時貨幣換算器</h2>
+                <p class="subtitle">出發前先算好預算，心裡有數！</p>
+                
+                <div class="calculator-card">
+                    <div class="grid-3">
+                        <div>
+                            <label style="display: block; margin-bottom: 10px; font-weight: 700; color: var(--dark-blue);">金額</label>
+                            <input type="number" id="currencyAmount" value="1000" 
+                                   style="width: 100%; padding: 15px; border: 2px solid var(--border-light); border-radius: var(--radius-sm); font-size: 1.1rem; font-weight: 700;"
+                                   oninput="convertCurrency()">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 10px; font-weight: 700; color: var(--dark-blue);">從</label>
+                            <select id="fromCurrency" 
+                                    style="width: 100%; padding: 15px; border: 2px solid var(--border-light); border-radius: var(--radius-sm); font-size: 1rem;"
+                                    onchange="convertCurrency()">
+                                <option value="HKD" selected>🇭🇰 HKD (港幣)</option>
+                                <option value="USD">🇺🇸 USD (美元)</option>
+                                <option value="SGD">🇸🇬 SGD (新加坡幣)</option>
+                                <option value="MVR">🇲🇻 MVR (馬代盧比)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 10px; font-weight: 700; color: var(--dark-blue);">到</label>
+                            <select id="toCurrency" 
+                                    style="width: 100%; padding: 15px; border: 2px solid var(--border-light); border-radius: var(--radius-sm); font-size: 1rem;"
+                                    onchange="convertCurrency()">
+                                <option value="HKD">🇭🇰 HKD (港幣)</option>
+                                <option value="USD">🇺🇸 USD (美元)</option>
+                                <option value="SGD" selected>🇸🇬 SGD (新加坡幣)</option>
+                                <option value="MVR">🇲🇻 MVR (馬代盧比)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="margin-top: 30px; padding: 25px; background: var(--primary-light); border-radius: var(--radius-md); text-align: center;">
+                        <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 5px;">換算結果</div>
+                        <div id="conversionResult" style="font-size: 2.5rem; font-weight: 900; color: var(--primary);">
+                            172.00 SGD
+                        </div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;" id="exchangeRateInfo">
+                            匯率: 1 HKD = 0.172 SGD
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ==========================================
              SECTION 8: WEATHER & PACKING
              ========================================== -->
@@ -2616,6 +2881,53 @@
             <div class="section-inner">
                 <h2>🌤️ 天氣 & 穿搭指南</h2>
                 <p class="subtitle">5月的馬爾代夫和新加坡分別該怎麼穿？一次告訴你。</p>
+
+                <!-- 實時天氣預報 -->
+                <div class="weather-widget" style="margin-bottom: 40px;">
+                    <div class="grid-2">
+                        <div class="weather-card animated-gradient" style="color: white;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <h3 style="color: white; margin: 0; padding-left: 0;">🇲🇻 馬爾代夫</h3>
+                                    <p style="opacity: 0.9; margin: 5px 0; font-size: 0.9rem;">5月22日 - 5月26日</p>
+                                </div>
+                                <div style="font-size: 4rem; opacity: 0.8;">☀️</div>
+                            </div>
+                            <div style="margin-top: 20px; display: flex; gap: 30px;">
+                                <div>
+                                    <div style="font-size: 3rem; font-weight: 900;">30°</div>
+                                    <div style="opacity: 0.8; font-size: 0.9rem;">平均溫度</div>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="margin: 10px 0; font-size: 0.95rem;">💧 濕度: 75-85%</div>
+                                    <div style="margin: 10px 0; font-size: 0.95rem;">🌧️ 降雨: 20%</div>
+                                    <div style="margin: 10px 0; font-size: 0.95rem;">☀️ UV: 極強</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="weather-card" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <h3 style="color: white; margin: 0; padding-left: 0;">🇸🇬 新加坡</h3>
+                                    <p style="opacity: 0.9; margin: 5px 0; font-size: 0.9rem;">5月27日 - 5月29日</p>
+                                </div>
+                                <div style="font-size: 4rem; opacity: 0.8;">🌦️</div>
+                            </div>
+                            <div style="margin-top: 20px; display: flex; gap: 30px;">
+                                <div>
+                                    <div style="font-size: 3rem; font-weight: 900;">29°</div>
+                                    <div style="opacity: 0.8; font-size: 0.9rem;">平均溫度</div>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="margin: 10px 0; font-size: 0.95rem;">💧 濕度: 80-90%</div>
+                                    <div style="margin: 10px 0; font-size: 0.95rem;">🌧️ 午後雷陣雨</div>
+                                    <div style="margin: 10px 0; font-size: 0.95rem;">🌡️ 體感: 悶熱</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="grid-2">
                     <div class="card">
@@ -3302,6 +3614,74 @@
 
     </div>
 
+        <!-- 緊急聯絡卡片 -->
+        <section class="section" style="background: linear-gradient(135deg, #fff5f5, #ffffff);">
+            <div class="section-inner">
+                <h2>🚨 緊急聯絡人</h2>
+                <p class="subtitle">點擊卡片直接撥打！緊急時刻用得著。</p>
+                
+                <div class="grid-3">
+                    <a href="tel:119" class="emergency-card" style="text-decoration: none;">
+                        <div class="emergency-icon" style="background: #e74c3c; color: white;">🚑</div>
+                        <div class="emergency-title">馬爾代夫緊急</div>
+                        <div class="emergency-number">119</div>
+                    </a>
+
+                    <a href="tel:999" class="emergency-card" style="text-decoration: none;">
+                        <div class="emergency-icon" style="background: #3498db; color: white;">🚓</div>
+                        <div class="emergency-title">新加坡報警</div>
+                        <div class="emergency-number">999</div>
+                    </a>
+
+                    <a href="tel:995" class="emergency-card" style="text-decoration: none;">
+                        <div class="emergency-icon" style="background: #e67e22; color: white;">🚑</div>
+                        <div class="emergency-title">新加坡急救</div>
+                        <div class="emergency-number">995</div>
+                    </a>
+
+                    <a href="tel:+85218680" class="emergency-card" style="text-decoration: none;">
+                        <div class="emergency-icon" style="background: #9b59b6; color: white;">🇭🇰</div>
+                        <div class="emergency-title">香港入境處</div>
+                        <div class="emergency-number">1868</div>
+                    </a>
+
+                    <a href="tel:+6565412831" class="emergency-card" style="text-decoration: none;">
+                        <div class="emergency-icon" style="background: #16a085; color: white;">🏨</div>
+                        <div class="emergency-title">The Clan Hotel</div>
+                        <div class="emergency-number">+65 6541 2831</div>
+                    </a>
+
+                    <a href="tel:+9606640629" class="emergency-card" style="text-decoration: none;">
+                        <div class="emergency-icon" style="background: #27ae60; color: white;">🏝️</div>
+                        <div class="emergency-title">Veligandu Resort</div>
+                        <div class="emergency-number">+960 664 0629</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分享和工具欄 -->
+        <div class="container" style="margin-top: 60px; margin-bottom: 40px;">
+            <div class="card" style="text-align: center; padding: 40px;">
+                <h3>📤 分享這個蜜月手冊</h3>
+                <p style="color: var(--text-muted); margin-bottom: 30px;">讓 Aggie 也能隨時查看行程！</p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <button onclick="shareToSocial('whatsapp')" class="share-btn" style="background: #25D366;">
+                        <span style="font-size: 1.5rem;">📱</span> WhatsApp
+                    </button>
+                    <button onclick="shareToSocial('telegram')" class="share-btn" style="background: #0088cc;">
+                        <span style="font-size: 1.5rem;">✈️</span> Telegram
+                    </button>
+                    <button onclick="shareToSocial('facebook')" class="share-btn" style="background: #1877f2;">
+                        <span style="font-size: 1.5rem;">📘</span> Facebook
+                    </button>
+                    <button onclick="addToCalendar()" class="share-btn" style="background: var(--gold);">
+                        <span style="font-size: 1.5rem;">📅</span> 加到日曆
+                    </button>
+                </div>
+            </div>
+        </div>
+
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
@@ -3498,6 +3878,124 @@
                 group.classList.remove('collapsed');
             });
         });
+        // ==========================================
+        // 貨幣換算功能
+        // ==========================================
+        const exchangeRates = {
+            HKD: { USD: 0.128, SGD: 0.172, MVR: 1.98, HKD: 1 },
+            USD: { HKD: 7.8, SGD: 1.34, MVR: 15.42, USD: 1 },
+            SGD: { HKD: 5.82, USD: 0.75, MVR: 11.5, SGD: 1 },
+            MVR: { HKD: 0.505, USD: 0.065, SGD: 0.087, MVR: 1 }
+        };
+
+        function convertCurrency() {
+            const amount = parseFloat(document.getElementById('currencyAmount').value) || 0;
+            const from = document.getElementById('fromCurrency').value;
+            const to = document.getElementById('toCurrency').value;
+            
+            const rate = exchangeRates[from][to];
+            const result = (amount * rate).toFixed(2);
+            
+            document.getElementById('conversionResult').textContent = 
+                `${parseFloat(result).toLocaleString('en-US', {minimumFractionDigits: 2})} ${to}`;
+            
+            document.getElementById('exchangeRateInfo').textContent = 
+                `匯率: 1 ${from} = ${rate} ${to}`;
+        }
+
+        // ==========================================
+        // 數字動畫效果
+        // ==========================================
+        const stats = {
+            flightHours: 17,
+            mealCount: 25,
+            photoEstimate: 500,
+            sunsetViews: 7
+        };
+
+        function animateNumber(id) {
+            const element = document.getElementById(id);
+            const target = stats[id];
+            let current = 0;
+            const increment = target / 50;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 20);
+        }
+
+        // 頁面載入時執行動畫
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                Object.keys(stats).forEach(id => {
+                    if (document.getElementById(id)) {
+                        animateNumber(id);
+                    }
+                });
+            }, 500);
+            
+            // 初始化貨幣換算
+            if (document.getElementById('currencyAmount')) {
+                convertCurrency();
+            }
+        });
+
+        // ==========================================
+        // 分享到社交媒體
+        // ==========================================
+        function shareToSocial(platform) {
+            const url = window.location.href;
+            const title = '🐷 Marco & Aggie 2026 蜜月計劃';
+            const text = '9天8夜養豬計劃與曬黑行動！';
+            
+            const shareUrls = {
+                whatsapp: `https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`,
+                telegram: `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
+                facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+                twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`
+            };
+            
+            if (shareUrls[platform]) {
+                window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+            }
+        }
+
+        // ==========================================
+        // 加到日曆功能
+        // ==========================================
+        function addToCalendar() {
+            const event = {
+                title: '🏝️ Marco & Aggie 蜜月啟程',
+                start: '20260521T1425',
+                end: '20260529T2300',
+                description: '馬爾代夫 Veligandu + 新加坡',
+                location: 'Hong Kong → Maldives → Singapore'
+            };
+            
+            const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+DTSTART:${event.start}
+DTEND:${event.end}
+SUMMARY:${event.title}
+DESCRIPTION:${event.description}
+LOCATION:${event.location}
+END:VEVENT
+END:VCALENDAR`;
+            
+            const blob = new Blob([icsContent], { type: 'text/calendar' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'honeymoon-2026.ics';
+            link.click();
+        }
+
 
         // ==========================================
         // CONSOLE EASTER EGG
