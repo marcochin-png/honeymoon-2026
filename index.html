@@ -2263,34 +2263,74 @@
 				
 
                 <!-- 互動式地圖 -->
+                <!-- 互動式地圖（修復版） -->
                 <div style="margin-top: 50px;">
-                    <h3>🗺️ 新加坡景點地圖</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 20px;">點擊標記查看詳情 | 可縮放拖動</p>
+                    <h3>🗺️ 新加坡景點導航</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">點擊景點卡片直接打開 Google Maps</p>
                     
-                    <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); margin-bottom: 20px;">
-                        <iframe src="https://www.google.com/maps/d/embed?mid=1zcn8TQqEd8mz_example&ehbc=2E312F" 
-                                width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe>
+                    <!-- 地圖預覽圖片 -->
+                    <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); margin-bottom: 30px; position: relative; height: 400px; background: linear-gradient(135deg, #667eea, #764ba2);">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
+                            <div style="font-size: 4rem; margin-bottom: 20px;">🗺️</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 10px;">新加坡景點地圖</div>
+                            <div style="font-size: 1rem; opacity: 0.9;">點擊下方景點卡片打開導航</div>
+                        </div>
                     </div>
                     
-                    <!-- 快速導航 -->
+                    <!-- 景點快速導航 -->
                     <div class="grid-3">
-                        <a href="https://maps.google.com/?q=The+Clan+Hotel+Singapore" target="_blank" class="card" style="text-decoration: none; text-align: center; padding: 20px;">
-                            <div style="font-size: 2rem; margin-bottom: 10px;">🏨</div>
-                            <div style="font-weight: 700; color: var(--dark-blue);">The Clan Hotel</div>
-                            <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">📍 在 Google Maps 打開</div>
+                        <a href="https://maps.app.goo.gl/search/The%20Clan%20Hotel%20Singapore" target="_blank" class="card" style="text-decoration: none; text-align: center; padding: 25px; transition: all 0.3s; cursor: pointer;">
+                            <div style="font-size: 2.5rem; margin-bottom: 12px;">🏨</div>
+                            <div style="font-weight: 700; color: var(--dark-blue); margin-bottom: 8px; font-size: 1.1rem;">The Clan Hotel</div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">📍 Telok Ayer</div>
+                            <div style="background: var(--primary); color: white; padding: 10px 20px; border-radius: 25px; display: inline-block; font-size: 0.9rem; font-weight: 700;">
+                                打開導航 →
+                            </div>
                         </a>
                         
-                        <a href="https://maps.google.com/?q=Jumbo+Seafood+Riverside+Point" target="_blank" class="card" style="text-decoration: none; text-align: center; padding: 20px;">
-                            <div style="font-size: 2rem; margin-bottom: 10px;">🦀</div>
-                            <div style="font-weight: 700; color: var(--dark-blue);">Jumbo Seafood</div>
-                            <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">📍 在 Google Maps 打開</div>
+                        <a href="https://maps.app.goo.gl/search/Jumbo%20Seafood%20Singapore" target="_blank" class="card" style="text-decoration: none; text-align: center; padding: 25px; transition: all 0.3s; cursor: pointer;">
+                            <div style="font-size: 2.5rem; margin-bottom: 12px;">🦀</div>
+                            <div style="font-weight: 700; color: var(--dark-blue); margin-bottom: 8px; font-size: 1.1rem;">Jumbo Seafood</div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">📍 Riverside Point</div>
+                            <div style="background: var(--accent); color: white; padding: 10px 20px; border-radius: 25px; display: inline-block; font-size: 0.9rem; font-weight: 700;">
+                                打開導航 →
+                            </div>
                         </a>
                         
-                        <a href="https://maps.google.com/?q=Gardens+by+the+Bay+Singapore" target="_blank" class="card" style="text-decoration: none; text-align: center; padding: 20px;">
-                            <div style="font-size: 2rem; margin-bottom: 10px;">🌺</div>
-                            <div style="font-weight: 700; color: var(--dark-blue);">濱海灣花園</div>
-                            <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">📍 在 Google Maps 打開</div>
+                        <a href="https://maps.app.goo.gl/search/Gardens%20by%20the%20Bay%20Singapore" target="_blank" class="card" style="text-decoration: none; text-align: center; padding: 25px; transition: all 0.3s; cursor: pointer;">
+                            <div style="font-size: 2.5rem; margin-bottom: 12px;">🌺</div>
+                            <div style="font-weight: 700; color: var(--dark-blue); margin-bottom: 8px; font-size: 1.1rem;">濱海灣花園</div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">📍 Flower Dome</div>
+                            <div style="background: var(--gold); color: white; padding: 10px 20px; border-radius: 25px; display: inline-block; font-size: 0.9rem; font-weight: 700;">
+                                打開導航 →
+                            </div>
+                        </a>
+                        
+                        <a href="https://maps.app.goo.gl/search/Universal%20Studios%20Singapore" target="_blank" class="card" style="text-decoration: none; text-align: center; padding: 25px; transition: all 0.3s; cursor: pointer;">
+                            <div style="font-size: 2.5rem; margin-bottom: 12px;">🎢</div>
+                            <div style="font-weight: 700; color: var(--dark-blue); margin-bottom: 8px; font-size: 1.1rem;">環球影城</div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">📍 Sentosa</div>
+                            <div style="background: var(--coral); color: white; padding: 10px 20px; border-radius: 25px; display: inline-block; font-size: 0.9rem; font-weight: 700;">
+                                打開導航 →
+                            </div>
+                        </a>
+                        
+                        <a href="https://maps.app.goo.gl/search/Song%20Fa%20Bak%20Kut%20Teh%20Chinatown" target="_blank" class="card" style="text-decoration: none; text-align: center; padding: 25px; transition: all 0.3s; cursor: pointer;">
+                            <div style="font-size: 2.5rem; margin-bottom: 12px;">🍖</div>
+                            <div style="font-weight: 700; color: var(--dark-blue); margin-bottom: 8px; font-size: 1.1rem;">松發肉骨茶</div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">📍 Chinatown Point</div>
+                            <div style="background: var(--primary); color: white; padding: 10px 20px; border-radius: 25px; display: inline-block; font-size: 0.9rem; font-weight: 700;">
+                                打開導航 →
+                            </div>
+                        </a>
+                        
+                        <a href="https://maps.app.goo.gl/search/Atlas%20Bar%20Singapore" target="_blank" class="card" style="text-decoration: none; text-align: center; padding: 25px; transition: all 0.3s; cursor: pointer;">
+                            <div style="font-size: 2.5rem; margin-bottom: 12px;">🍸</div>
+                            <div style="font-weight: 700; color: var(--dark-blue); margin-bottom: 8px; font-size: 1.1rem;">Atlas Bar</div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">📍 Gin Palace</div>
+                            <div style="background: var(--dark-blue); color: white; padding: 10px 20px; border-radius: 25px; display: inline-block; font-size: 0.9rem; font-weight: 700;">
+                                打開導航 →
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -4053,21 +4093,59 @@
         // COUNTDOWN TIMER
         // ==========================================
         function updateCountdown() {
-            const targetDate = new Date('2026-05-21T14:25:00+08:00').getTime();
             const now = new Date().getTime();
-            const difference = targetDate - now;
+            const departureDate = new Date('May 21, 2026 14:25:00').getTime();
+            const distance = departureDate - now;
 
-            if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            if (distance > 0) {
+                const mainDaysEl = document.getElementById('mainDays');
+                const mainHoursEl = document.getElementById('mainHours');
+                const mainMinutesEl = document.getElementById('mainMinutes');
+                const mainSecondsEl = document.getElementById('mainSeconds');
+                
+                if (mainDaysEl) mainDaysEl.textContent = days;
+                if (mainHoursEl) mainHoursEl.textContent = hours;
+                if (mainMinutesEl) mainMinutesEl.textContent = minutes;
+                if (mainSecondsEl) mainSecondsEl.textContent = seconds;
+            }
+           // 馬爾代夫倒數
+            const maldivesDate = new Date('May 21, 2026 22:10:00').getTime();
+            const maldivesDist = maldivesDate - now;
+            if (maldivesDist > 0) {
+                const maldivesDays = Math.floor(maldivesDist / (1000 * 60 * 60 * 24));
+                const maldivesDaysEl = document.getElementById('maldivesDays');
+                if (maldivesDaysEl) {
+                    maldivesDaysEl.textContent = maldivesDays + ' 天';
+                }
+            }
 
-                document.getElementById('days').textContent = days;
-                document.getElementById('hours').textContent = hours;
-                document.getElementById('minutes').textContent = minutes;
-                document.getElementById('seconds').textContent = seconds;
-            } else {
+            // 新加坡倒數
+            const singaporeDate = new Date('May 27, 2026 07:10:00').getTime();
+            const singaporeDist = singaporeDate - now;
+            if (singaporeDist > 0) {
+                const singaporeDays = Math.floor(singaporeDist / (1000 * 60 * 60 * 24));
+                const singaporeDaysEl = document.getElementById('singaporeDays');
+                if (singaporeDaysEl) {
+                    singaporeDaysEl.textContent = singaporeDays + ' 天';
+                }
+            }
+
+            // 返港倒數
+            const returnDate = new Date('May 29, 2026 23:00:00').getTime();
+            const returnDist = returnDate - now;
+            if (returnDist > 0) {
+                const returnDays = Math.floor(returnDist / (1000 * 60 * 60 * 24));
+                const returnDaysEl = document.getElementById('returnDays');
+                if (returnDaysEl) {
+                    returnDaysEl.textContent = returnDays + ' 天';
+                }
+            }
+        }
+
+        // 啟動倒數計時器
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+			else {
                 document.getElementById('countdown').innerHTML = '<div style="font-weight:900; font-size:1.8rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">🎉 HAVE FUN! 🎉</div>';
             }
         }
@@ -4460,48 +4538,7 @@ END:VCALENDAR`;
         // ==========================================
         // 多個倒數計時器
         // ==========================================
-        function updateMultipleCountdowns() {
-            const now = new Date().getTime();
-            
-            // 主倒數（出發）
-            const departureDate = new Date('May 21, 2026 14:25:00').getTime();
-            const distance = departureDate - now;
-            
-            if (distance > 0) {
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                if (document.getElementById('mainDays')) {
-                    document.getElementById('mainDays').textContent = days;
-                    document.getElementById('mainHours').textContent = hours;
-                    document.getElementById('mainMinutes').textContent = minutes;
-                    document.getElementById('mainSeconds').textContent = seconds;
-                }
-            }
-            
-            // 馬爾代夫
-            const maldivesDate = new Date('May 21, 2026 22:10:00').getTime();
-            const maldivesDays = Math.floor((maldivesDate - now) / (1000 * 60 * 60 * 24));
-            if (document.getElementById('maldivesDays')) {
-                document.getElementById('maldivesDays').textContent = maldivesDays + ' 天';
-            }
-            
-            // 新加坡
-            const singaporeDate = new Date('May 27, 2026 07:10:00').getTime();
-            const singaporeDays = Math.floor((singaporeDate - now) / (1000 * 60 * 60 * 24));
-            if (document.getElementById('singaporeDays')) {
-                document.getElementById('singaporeDays').textContent = singaporeDays + ' 天';
-            }
-            
-            // 返回香港
-            const returnDate = new Date('May 29, 2026 23:00:00').getTime();
-            const returnDays = Math.floor((returnDate - now) / (1000 * 60 * 60 * 24));
-            if (document.getElementById('returnDays')) {
-                document.getElementById('returnDays').textContent = returnDays + ' 天';
-            }
-        }
+
 
         // ==========================================
         // QR Code 生成
@@ -4546,9 +4583,6 @@ END:VCALENDAR`;
             // 初始化打包進度
             updatePackingProgress();
             
-            // 啟動多個倒數計時
-            updateMultipleCountdowns();
-            setInterval(updateMultipleCountdowns, 1000);
             
             // 監聽 Checklist 變化
             document.querySelectorAll('.check-item input[type="checkbox"]').forEach(checkbox => {
