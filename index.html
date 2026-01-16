@@ -1473,26 +1473,26 @@
             <p class="tagline">"Honeymoon Mission: Eat, Play, Sleep"</p>
             
                 <!-- 多個倒數計時器 -->
-                <div style="margin-top: 35px;">
+<div style="margin-top: 35px;">
                     <div class="grid-2" style="gap: 20px;">
                         <!-- 主倒數 -->
                         <div style="background: rgba(255,255,255,0.2); backdrop-filter: blur(12px); padding: 25px; border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.3); text-align: center;">
                             <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; opacity: 0.95;">✈️ 距離出發</div>
                             <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
                                 <div style="background: rgba(255,255,255,0.25); padding: 12px 20px; border-radius: var(--radius-md); min-width: 70px;">
-                                    <div id="mainDays" style="font-size: 2rem; font-weight: 900; line-height: 1;">0</div>
+                                    <div id="days" style="font-size: 2rem; font-weight: 900; line-height: 1;">0</div>
                                     <div style="font-size: 0.75rem; opacity: 0.9; margin-top: 5px;">天</div>
                                 </div>
                                 <div style="background: rgba(255,255,255,0.25); padding: 12px 20px; border-radius: var(--radius-md); min-width: 70px;">
-                                    <div id="mainHours" style="font-size: 2rem; font-weight: 900; line-height: 1;">0</div>
+                                    <div id="hours" style="font-size: 2rem; font-weight: 900; line-height: 1;">0</div>
                                     <div style="font-size: 0.75rem; opacity: 0.9; margin-top: 5px;">時</div>
                                 </div>
                                 <div style="background: rgba(255,255,255,0.25); padding: 12px 20px; border-radius: var(--radius-md); min-width: 70px;">
-                                    <div id="mainMinutes" style="font-size: 2rem; font-weight: 900; line-height: 1;">0</div>
+                                    <div id="minutes" style="font-size: 2rem; font-weight: 900; line-height: 1;">0</div>
                                     <div style="font-size: 0.75rem; opacity: 0.9; margin-top: 5px;">分</div>
                                 </div>
                                 <div style="background: rgba(255,255,255,0.25); padding: 12px 20px; border-radius: var(--radius-md); min-width: 70px;">
-                                    <div id="mainSeconds" style="font-size: 2rem; font-weight: 900; line-height: 1;">0</div>
+                                    <div id="seconds" style="font-size: 2rem; font-weight: 900; line-height: 1;">0</div>
                                     <div style="font-size: 0.75rem; opacity: 0.9; margin-top: 5px;">秒</div>
                                 </div>
                             </div>
@@ -4141,6 +4141,51 @@
                 }
             }
         }
+		
+		function updateCountdown() {
+            const now = new Date().getTime();
+            const departureDate = new Date('May 21, 2026 14:25:00').getTime();
+            const distance = departureDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                if (document.getElementById('days')) {
+                    document.getElementById('days').textContent = days;
+                    document.getElementById('hours').textContent = hours;
+                    document.getElementById('minutes').textContent = minutes;
+                    document.getElementById('seconds').textContent = seconds;
+                }
+            }
+
+            // 馬爾代夫倒數
+            const maldivesDate = new Date('May 21, 2026 22:10:00').getTime();
+            const maldivesDist = maldivesDate - now;
+            if (maldivesDist > 0 && document.getElementById('maldivesDays')) {
+                const maldivesDays = Math.floor(maldivesDist / (1000 * 60 * 60 * 24));
+                document.getElementById('maldivesDays').textContent = maldivesDays + ' 天';
+            }
+
+            // 新加坡倒數
+            const singaporeDate = new Date('May 27, 2026 07:10:00').getTime();
+            const singaporeDist = singaporeDate - now;
+            if (singaporeDist > 0 && document.getElementById('singaporeDays')) {
+                const singaporeDays = Math.floor(singaporeDist / (1000 * 60 * 60 * 24));
+                document.getElementById('singaporeDays').textContent = singaporeDays + ' 天';
+            }
+
+            // 返港倒數
+            const returnDate = new Date('May 29, 2026 23:00:00').getTime();
+            const returnDist = returnDate - now;
+            if (returnDist > 0 && document.getElementById('returnDays')) {
+                const returnDays = Math.floor(returnDist / (1000 * 60 * 60 * 24));
+                document.getElementById('returnDays').textContent = returnDays + ' 天';
+            }
+        }
+
 
         // 啟動倒數計時器
         updateCountdown();
